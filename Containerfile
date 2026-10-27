@@ -7,7 +7,7 @@ ARG CADDY_VERSION=latest
 ARG CF_VERSION
 ARG DDNS_VERSION
 
-RUN xcaddy build \
+RUN xcaddy build v${CADDY_VERSION} \
     --with github.com/caddy-dns/cloudflare@${CF_VERSION} \
     --with github.com/mholt/caddy-dynamicdns@${DDNS_VERSION}
 
