@@ -1,10 +1,15 @@
-ARG CADDY_VERSION=2.11
+ARG CADDY_VERSION=latest
+ARG CF_VERSION
+ARG DDNS_VERSION
 
 FROM caddy:${CADDY_VERSION}-builder AS builder
+ARG CADDY_VERSION=latest
+ARG CF_VERSION
+ARG DDNS_VERSION
 
 RUN xcaddy build \
-    --with github.com/caddy-dns/cloudflare \
-    --with github.com/mholt/caddy-dynamicdns
+    --with github.com/caddy-dns/cloudflare@${CF_VERSION} \
+    --with github.com/mholt/caddy-dynamicdns@${DDNS_VERSION}
 
 FROM caddy:${CADDY_VERSION}
 
