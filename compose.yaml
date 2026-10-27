@@ -5,13 +5,15 @@ services:
     volumes:
       - ./conf:/etc/caddy:ro
       - caddy_data:/data
-    env_file: .env
     restart: unless-stopped
     networks:
       - caddy
     ports:
       - 80:80
       - 443:443
+    env_file: .env
+    environment:
+      CF_API_TOKEN: ${CF_API_TOKEN:?CF_API_TOKEN is not set}
 
 volumes:
   caddy_data:
