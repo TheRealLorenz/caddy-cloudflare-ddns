@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: ghcr.io/thereallorenz/caddy-cloudflare-ddns:0.4.0
+    image: ghcr.io/thereallorenz/caddy-cloudflare-ddns:latest
     container_name: caddy
     volumes:
       - ./conf:/etc/caddy:ro
